@@ -1,22 +1,6 @@
-
 import Link from 'next/link';
- 
-export async function getStaticPaths() {
-  const response = await fetch(`http://localhost:4000/videos`);
-  const data = await response.json();
-  const paths = data.map((video) => {
-    return {
-      params: { id: `${video.id}` }
-    }
-  });
 
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   let { id } = context.params;
   const response = await fetch(`http://localhost:4000/videos/${id}`);
   // data is an object

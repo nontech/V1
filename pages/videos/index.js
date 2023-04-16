@@ -1,8 +1,7 @@
 import Video from '../../components/video';
 import Link from 'next/link';
 
-// runs only on the server-side
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // data is served from a fake API using json-server locally
   // run -> npm run serve-json
   // data available at -> localhost:4000/videos
