@@ -4,7 +4,7 @@ function HomePage({ data }) {
   return (
     <div>
       <h1>Home Page</h1>
-      <Link href="/video">Videos List</Link>
+      <Link href="/videos">Videos List</Link>
     </div>
   );
 }
