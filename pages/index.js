@@ -3,7 +3,7 @@ import Link from 'next/link';
 function HomePage({ data }) {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h2>Home Page</h2>
       <Link href="/videos">Videos List</Link>
     </div>
   );
