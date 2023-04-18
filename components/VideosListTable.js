@@ -4,6 +4,7 @@ import Events from 'components/Events';
 
 export default function VideosListTable({ videos }) {
   return (
+    <div class="p-10">
     <table class="min-w-full divide-y divide-gray-200">
       <thead>
         <tr>
@@ -59,5 +60,6 @@ export default function VideosListTable({ videos }) {
         )})}
       </tbody>
     </table>
+   </div>
   )
 }

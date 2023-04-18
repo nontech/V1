@@ -31,8 +31,17 @@ export async function getServerSideProps() {
 export default function VideosList({ videos }) {
   return (
     <div>
-      <Link href="/">Back To Home</Link>
+      <h1 class="mt-10 ml-10">All Videos</h1>
       <VideosListTable videos={videos} />
+      <div class="mt-20 ml-5">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-20 ml-10">
+          Analyze with AI
+        </button>
+
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Share with Doctor
+        </button>
+      </div>
     </div>
   );
 }

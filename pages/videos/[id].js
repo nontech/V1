@@ -30,7 +30,6 @@ export default function Video({ video }) {
 
   return (
     <div>
-      <Link href='/videos'>Back to Videos List</Link>
       <p>{video.title}</p>
       <p>{video.author}</p>
     </div>
