@@ -1,0 +1,15 @@
+.layout-header, .layout-footer {
+  background-color: #264653;
+  color: #f4a261;
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+.layout-footer {
+  width: 100%;
+  position: fixed;
+  bottom:0;
+}

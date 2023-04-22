@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import VideoPlayer from 'components/VideoPlayer';
 
 export async function getServerSideProps(context) {
   let { id } = context.params;
@@ -30,9 +31,8 @@ export default function Video({ video }) {
 
   return (
     <div>
-      <Link href='/videos'>Back to Videos List</Link>
-      <p>{video.title}</p>
-      <p>{video.author}</p>
+      <Link href="/videos" class="text-gray-700 text-sm font-medium flex justify-center mt-10">Back</Link>
+      <VideoPlayer />
     </div>
   )
 }

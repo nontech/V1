@@ -1,4 +1,4 @@
-import Video from '../../components/video';
+import VideosListTable from 'components/VideosListTable';
 import Link from 'next/link';
 
 export async function getServerSideProps() {
@@ -7,37 +7,41 @@ export async function getServerSideProps() {
   // data available at -> localhost:4000/videos
   // data is an array of objects
   // [
-  //   {
-  //     "id": "1",
-  //     "title": "Big Buck Bunny",
-  //     "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-  //     "duration": "8:18",
-  //     "uploadTime": "May 9, 2011",
-  //     "views": "24,969,123",
-  //     "author": "Vlc Media Player",
-  //     "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-  //   },
+  //  {
+  //    "id": 1,
+  //    "title": "Video 1",
+  //    "recorded_on": "2022-06-15",
+  //    "duration": "00:45:12",
+  //    "uploaded_on": "2022-06-16",
+  //    "review_status": ["uploaded", "ai", "doctor_shared", "doctor_reviewed"],
+  //    "events": [6, 8, 10],
+  //    "author": "John Doe",
+  //    "uploaded_by": "Jane Smith",
+  //    "video_url": "https://example.com/videos/video1"
+  //  },
   //   ...
   // ]
   const response = await fetch(`http://localhost:4000/videos`);
 
   const data = await response.json();
 
-  return { props: {  videos: data  }};
+  return { props: {  videos: data } };
 }
 
 export default function VideosList({ videos }) {
   return (
     <div>
-      <Link href="/">Back To Home</Link>
-      <h1>List of Videos</h1>
-      <ul>
-       {videos.map((video) => (
-          <li key={video.id}>
-            <Video videoData={video} />
-          </li>
-        ))}
-      </ul>
+      <h1 class="mt-10 ml-10">All Videos</h1>
+      <VideosListTable videos={videos} />
+      <div class="mt-20 ml-5">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-20 ml-10">
+          Analyze with AI
+        </button>
+
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Share with Doctor
+        </button>
+      </div>
     </div>
   );
 }

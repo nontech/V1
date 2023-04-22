@@ -1,0 +1,52 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Video 1",
+      "recorded_on": "2022-06-15",
+      "duration": "00:45:12",
+      "uploaded_on": "2022-06-16",
+      "review_status": ["uploaded", "ai", "doctor_shared", "doctor_reviewed"],
+      "events": [6, 8, 10],
+      "author": "John Doe",
+      "uploaded_by": "Jane Smith",
+      "video_url": "https://example.com/videos/video1"
+    },
+    {
+      "id": 2,
+      "title": "Video 2",
+      "recorded_on": "2022-06-17",
+      "duration": "00:50:30",
+      "uploaded_on": "2022-06-18",
+      "review_status": ["uploaded", "doctor_shared", "doctor_reviewed"],
+      "events": [6, null, 10],
+      "author": "Alice Brown",
+      "uploaded_by": "Bob Johnson",
+      "video_url": "https://example.com/videos/video2"
+    },
+    {
+      "id": 3,
+      "title": "Video 3",
+      "recorded_on": "2022-06-20",
+      "duration": "00:30:15",
+      "uploaded_on": "2022-06-21",
+      "review_status": ["uploaded", "ai", "doctor_shared"],
+      "events": [6, 1, null],
+      "author": "Eve Green",
+      "uploaded_by": "Adam White",
+      "video_url": "https://example.com/videos/video3"
+    },
+    {
+      "id": 4,
+      "title": "Video 4",
+      "recorded_on": "2022-06-25",
+      "duration": "01:15:00",
+      "uploaded_on": "2022-06-26",
+      "review_status": ["uploaded", "doctor_reviewed"],
+      "events": [6, null, 8],
+      "author": "Mary Black",
+      "uploaded_by": "Peter Grey",
+      "video_url": "https://example.com/videos/video4"
+    }
+  ]
+}
