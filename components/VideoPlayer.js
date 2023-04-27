@@ -2,7 +2,18 @@ import React, { useState, useRef } from 'react';
 import ReactPlayer from 'react-player';
 import clsx from 'clsx';
 
-
+// "clips": [
+//   {
+//     "id": "clip1",
+//     "start": 5,
+//     "end": 10,
+//     "created_by": "user",
+//     "created_at": "2021-06-15",
+//     "description": "This is a clip",
+//     "steps": ["ai", "doctor"]
+//   },
+//   ...
+// ]
 const clips = [
   { start: 5, end: 10 },
   { start: 25, end: 30 },
