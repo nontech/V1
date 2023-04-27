@@ -3,7 +3,7 @@ import VideoPlayer from 'components/VideoPlayer';
 
 export async function getServerSideProps(context) {
   let { id } = context.params;
-  const response = await fetch(`http://localhost:5000/api/videos/${id}`);
+  const response = await fetch(`http://localhost:5000/api/videos/${id}/metadata`);
   // data is an object
   // {
   //   "filename": "LABORATORIES-SCIENCE_12.mp4",
@@ -22,7 +22,6 @@ export async function getServerSideProps(context) {
   //   "__v": 0
   // }
   const data = await response.json();
-  console.log(data)
 
   // if _id is not found, return 404
   if (!data._id) {
