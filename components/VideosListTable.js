@@ -2,7 +2,7 @@ import Link from 'next/link';
 import StatusArrayToTags from 'components/ReviewStatusTags';
 import Events from 'components/Events';
 
-export default function VideosListTable({ videos }) {
+export default function VideosListTable({ videos, videosFromDB }) {
   return (
     <div class="p-10">
     <table class="min-w-full divide-y divide-gray-200">
@@ -32,26 +32,26 @@ export default function VideosListTable({ videos }) {
       </thead>
       <tbody class="bg-white divide-y divide-gray-200">
         {videos.map((video) => {
-          const { id, title, recorded_on, duration, uploaded_on, review_status, events } = video;
+          const { _id, filename, recordedOn, duration, uploadedOn, reviewStatus, events } = video;
           return (
-            <tr key={id}>
+            <tr key={_id}>
               <td class="px-6 py-4 whitespace-nowrap">
                 <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <Link href="/videos/[id]" as={`/videos/${id}`}>{title}</Link>
+                <Link href="/videos/[id]" as={`/videos/${_id}`}>{filename}</Link>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                {recorded_on}
+                {recordedOn}
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 {duration}
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                {uploaded_on}
+                {uploadedOn}
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <StatusArrayToTags statusArray={ review_status } />
+                <StatusArrayToTags statusArray={ reviewStatus } />
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <Events eventsArray= { events } />

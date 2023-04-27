@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import clsx from 'clsx';
 
@@ -10,10 +10,22 @@ const clips = [
   { start: 65, end: 70 },
 ];
 
-export default function VideoPlayer() {
+export default function VideoPlayer({ video }) {
+  const { filename } = video
+  const [videoSrc, setVideoSrc] = useState('');
   const [played, setPlayed] = useState(0);
   const [duration, setDuration] = useState(0);
   const playerRef = useRef(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/videos/${filename}`)
+      .then(response => response.blob())
+      .then(videoBlob => {
+        const videoUrl = URL.createObjectURL(videoBlob);
+        setVideoSrc(videoUrl);
+      })
+      .catch(error => console.error(error));
+  }, [filename]);
 
   const handleProgress = (state) => {
     if (!isNaN(state.playedSeconds)) {
@@ -34,10 +46,10 @@ export default function VideoPlayer() {
       <div className="relative mt-20">
         <ReactPlayer
           ref={playerRef}
-          url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+          url={videoSrc}
           width="640px"
           height="360px"
-          controls="true"
+          controls={true}
           onProgress={handleProgress}
           onDuration={handleDuration}
         />
