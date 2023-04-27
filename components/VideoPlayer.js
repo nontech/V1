@@ -10,7 +10,8 @@ const clips = [
   { start: 65, end: 70 },
 ];
 
-export default function VideoPlayer() {
+export default function VideoPlayer({ video }) {
+  console.log('Single video', video)
   const [played, setPlayed] = useState(0);
   const [duration, setDuration] = useState(0);
   const playerRef = useRef(null);

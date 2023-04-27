@@ -3,22 +3,29 @@ import VideoPlayer from 'components/VideoPlayer';
 
 export async function getServerSideProps(context) {
   let { id } = context.params;
-  const response = await fetch(`http://localhost:4000/videos/${id}`);
+  const response = await fetch(`http://localhost:5000/api/videos/${id}`);
   // data is an object
   // {
-  //   "id": "1",
-  //   "title": "Big Buck Bunny",
-  //   "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Big_Buck_Bunny_thumbnail_vlc.png/1200px-Big_Buck_Bunny_thumbnail_vlc.png",
-  //   "duration": "8:18",
-  //   "uploadTime": "May 9, 2011",
-  //   "views": "24,969,123",
-  //   "author": "Vlc Media Player",
-  //   "videoUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  //   "filename": "LABORATORIES-SCIENCE_12.mp4",
+  //   "size": 33157948,
+  //   "videoUrl": "/Users/jais_mukesh/Projects/js-projects/thea_backend/uploads/LABORATORIES-SCIENCE_12.mp4",
+  //   "thumbnailUrl": "",
+  //   "duration": 180,
+  //   "recordedOn": "May 9, 2011",
+  //   "recordedBy": "Christian Meisel",
+  //   "reviewStatus": [
+  //     "uploaded"
+  //   ],
+  //   "events": [],
+  //   "uploadedOn": "May 10, 2011",
+  //   "uploadedBy": "Gadi Miron",
+  //   "__v": 0
   // }
   const data = await response.json();
+  console.log(data)
 
-  // if id is not found, return 404
-  if (!data.id) {
+  // if _id is not found, return 404
+  if (!data._id) {
     return {
       notFound: true
     }
@@ -32,7 +39,7 @@ export default function Video({ video }) {
   return (
     <div>
       <Link href="/videos" class="text-gray-700 text-sm font-medium flex justify-center mt-10">Back</Link>
-      <VideoPlayer />
+      <VideoPlayer video={ video } />
     </div>
   )
 }

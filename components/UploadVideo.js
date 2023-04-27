@@ -11,7 +11,7 @@ export default function UploadVideo() {
     const formData = new FormData();
     formData.append('video', selectedFile);
 
-    const response = await fetch('https://example.com/api/upload', {
+    const response = await fetch('http://localhost:5000/api/upload-video', {
       method: 'POST',
       body: formData
     });
