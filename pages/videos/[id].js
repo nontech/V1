@@ -3,7 +3,7 @@ import VideoPlayer from 'components/VideoPlayer';
 
 export async function getServerSideProps(context) {
   let { id } = context.params;
-  const response = await fetch(`http://localhost:5000/api/videos/${id}/metadata`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/videos/${id}/metadata`);
   // data is an object
   // {
   //   "filename": "LABORATORIES-SCIENCE_12.mp4",

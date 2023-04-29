@@ -22,7 +22,9 @@ export async function getServerSideProps() {
     // },
   //   ...
   // ]
-  const response = await fetch(`http://localhost:5000/api/videos`);
+  console.log('inside getServerSideProps VideosList Table /api/videos', process.env.NEXT_PUBLIC_BACKEND_DOMAIN)
+
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/videos`);
   const data = await response.json();
 
   return { props: {  videos: data } };
