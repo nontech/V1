@@ -7,11 +7,12 @@ export default function UploadVideo() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log('inside handleSubmit', process.env.NEXT_PUBLIC_BACKEND_DOMAIN)
 
     const formData = new FormData();
     formData.append('video', selectedFile);
-
-    const response = await fetch('http://localhost:5000/api/upload-video', {
+                                 
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/upload-video`, {
       method: 'POST',
       body: formData
     });
