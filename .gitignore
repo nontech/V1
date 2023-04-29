@@ -28,4 +28,4 @@ yarn-error.log*
 # are intended to be ignored. 
 
 # .env.local is where secrets can be stored.
-.env*.local
+.env.local
