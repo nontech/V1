@@ -3,25 +3,25 @@ import Link from 'next/link';
 
 export async function getServerSideProps() {
   // data is an array of objects
-  // [
-    // {
-    //   "filename": "LABORATORIES-SCIENCE_12.mp4",
-    //   "size": 33157948,
-    //   "videoUrl": "/Users/jais_mukesh/Projects/js-projects/thea_backend/uploads/LABORATORIES-SCIENCE_12.mp4",
-    //   "thumbnailUrl": "",
-    //   "duration": 180,
-    //   "recordedOn": "May 9, 2011",
-    //   "recordedBy": "Christian Meisel",
-    //   "reviewStatus": [
-    //     "uploaded"
-    //   ],
-    //   "events": [],
-    //   "uploadedOn": "May 10, 2011",
-    //   "uploadedBy": "Gadi Miron",
-    //   "__v": 0
-    // },
-  //   ...
-  // ]
+    // [
+    //   {
+    //     _id: new ObjectId("6450620edbf68b6f07bc801c"),
+    //     length: 33157948,
+    //     chunkSize: 261120,
+    //     uploadDate: 2023-05-02T01:06:23.999Z,
+    //     filename: 'LABORATORIES-SCIENCE_12',
+    //     metadata: {
+    //       thumbnailUrl: '',
+    //       description: '',
+    //       duration: 180,
+    //       recordedOn: 'May 9, 2011',
+    //       recordedBy: 'Christian Meisel',
+    //       reviewStatus: [Array],
+    //       events: [],
+    //       uploadedBy: 'Gadi Miron'
+    //     }
+    //   }, ...
+    // ]
   console.log('inside getServerSideProps VideosList Table /api/videos', process.env.NEXT_PUBLIC_BACKEND_DOMAIN)
 
   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/videos`);

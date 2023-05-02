@@ -10,22 +10,19 @@ const clips = [
   { start: 65, end: 70 },
 ];
 
-export default function VideoPlayer({ video }) {
-  const { filename } = video
+export default function VideoPlayer({ videoId }) {
   const [videoSrc, setVideoSrc] = useState('');
   const [played, setPlayed] = useState(0);
   const [duration, setDuration] = useState(0);
   const playerRef = useRef(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/videos/${filename}`)
-      .then(response => response.blob())
-      .then(videoBlob => {
-        const videoUrl = URL.createObjectURL(videoBlob);
-        setVideoSrc(videoUrl);
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/video/${videoId}`)
+      .then(data => {
+        setVideoSrc(data.url);
       })
       .catch(error => console.error(error));
-  }, [filename]);
+  }, [videoId]);
 
   const handleProgress = (state) => {
     if (!isNaN(state.playedSeconds)) {
