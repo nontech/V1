@@ -8,26 +8,28 @@ This repository contains the frontend code for the application built using __Nex
 
 To set up a development environment for this project, follow these steps:
 
-1. Clone the repository to your local machine
+1. First and formost, make sure the backend is running on your local machine. Follow the guide on the README.md page of [thea_backend](https://github.com/nontech/thea_backend#thea-_-backend).
+
+2. Clone the repository to your local machine
     ```
     git clone https://github.com/nontech/V1.git
     ```
-2. Navigate to the project directory
+3. Navigate to the project directory
     ```
     cd V1
     ```
 
-3. Install the dependencies
+4. Install the dependencies
     ```
     npm install
     ```
     
-4. Start the development server
+5. Start the development server
     ```
     npm run dev
     ```
     
-5. Open the web browser and go to `http://localhost:3000/` to see the application running.
+6. Open the web browser and go to `http://localhost:3000/` to see the application running.
 
 
 ## Project Architecture
