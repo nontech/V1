@@ -27,6 +27,8 @@ export async function getServerSideProps() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_DOMAIN}/api/videos`);
   const data = await response.json();
 
+  console.log('ALl videos data', data)
+
   return { props: {  videos: data } };
 }
 
